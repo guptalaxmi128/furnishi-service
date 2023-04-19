@@ -57,9 +57,9 @@ export default function Logo({ disabledLink = false, sx }) {
           />
         </g>
       </svg> */}
-      <img src={images.furnishiLogo} alt="" height={75} width={100} />
+      <img src={images.furnishiLogo} alt="" height={70} width={75} style={{borderRadius:10,padding:2}} />
       <Typography variant="h3" sx={{ color: 'text.primary', maxWidth: {md: '300px'} }}>
-      FURNISHI SERVICES
+      &nbsp; FURNISHI SERVICES
     </Typography>
     </Box>
   );

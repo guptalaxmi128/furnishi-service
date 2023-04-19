@@ -1,4 +1,4 @@
-// scroll bar
+ // scroll bar
 import 'simplebar/src/simplebar.css';
 
 import ReactDOM from 'react-dom/client';
@@ -17,7 +17,7 @@ import reportWebVitals from './reportWebVitals';
 
 // ----------------------------------------------------------------------
 
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+ export const store = createStore(reducers, compose(applyMiddleware(thunk)));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

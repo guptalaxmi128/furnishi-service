@@ -210,6 +210,9 @@ const FactoryInfo = (props) => {
             name="companyName"
             value={factory.companyName}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Company Address"
@@ -220,6 +223,9 @@ const FactoryInfo = (props) => {
             name="companyAddress"
             value={factory.companyAddress}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -232,6 +238,9 @@ const FactoryInfo = (props) => {
             name="contactNumber"
             value={factory.contactNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Website"
@@ -242,6 +251,9 @@ const FactoryInfo = (props) => {
             value={factory.website}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mb: 2 }}>
@@ -254,6 +266,9 @@ const FactoryInfo = (props) => {
             name="gstNumber"
             value={factory.gstNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Manager"
@@ -264,6 +279,9 @@ const FactoryInfo = (props) => {
             name="manager"
             value={factory.manager}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -276,6 +294,9 @@ const FactoryInfo = (props) => {
             name="managerNumber"
             value={factory.managerNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Manager Email Id"
@@ -286,11 +307,14 @@ const FactoryInfo = (props) => {
             value={factory.managerEmailId}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
 
         <Box>
-          <Button variant="contained" color="primary" type="submit">
+          <Button  type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important", color:'#fff'}}>
             Submit
           </Button>
         </Box>

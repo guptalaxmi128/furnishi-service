@@ -1,4 +1,4 @@
-import furnishiLogo from '../assets/furnishi_logo.png';
+import furnishiLogo from '../assets/logoimg.jpg';
 
 export default {
     furnishiLogo

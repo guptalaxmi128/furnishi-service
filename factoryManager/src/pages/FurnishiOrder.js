@@ -296,7 +296,7 @@ const FurnishiOrder = () => {
         <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Order List
+            Order List 
           </Typography>
           {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting

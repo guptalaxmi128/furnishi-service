@@ -109,7 +109,7 @@ const OrderList = () => {
   const [headTab, setHeadTab] = useState(0);
   const [subTab, setSubTab] = useState(0);
 
-
+// console.log(cordinators)
   const handleHeadTabChange = (event, newValue) => {
     setHeadTab(newValue);
   };
@@ -291,21 +291,23 @@ const OrderList = () => {
           }        
       </Modal>
       <Page title="Orderlist">
-        <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+        {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Order List
           </Typography>
-          {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting
-          </Button> */}
-        </Stack>
-          <Card sx={{ p: 2 }}>
+          </Button>
+        </Stack> */}
+          <Card sx={{ paddingLeft: 1, paddingRight:1 }}>
             <Box>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example">
-                  <Tab label="New Order List" {...a11yProps(0)} />
-                  <Tab label="Order Lists" {...a11yProps(1)} />
+                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example"  TabIndicatorProps={{
+                  style: { backgroundColor: "#284F49" }
+                  }}>
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >New Order List</Typography> {...a11yProps(0)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >Order Lists</Typography> {...a11yProps(1)} />
                 </Tabs>
               </Box>
               <TabPanel value={headTab} index={0}>
@@ -316,7 +318,7 @@ const OrderList = () => {
               </TabPanel>
             </Box>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

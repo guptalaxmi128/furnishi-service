@@ -255,12 +255,15 @@ const StatusMaster = (props) => {
               name="status"
               value={status.status}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             </Grid>
             </Grid>
           </Box>
           <Box>
-            <Button variant="contained" color="primary" type="submit">
+            <Button type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important" ,color:'#fff'}}>
               Submit
             </Button>
           </Box>

@@ -289,22 +289,24 @@ const Snaglist = () => {
           }        
       </Modal>
       <Page title="Snaglist">
-        <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+        {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Snaglist
           </Typography>
-          {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting
-          </Button> */}
-        </Stack>
-          <Card sx={{ p: 2 }}>
+          </Button>
+        </Stack> */}
+          <Card sx={{ paddingLeft: 1 ,paddingRight:1 }}>
             <Box>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example">
-                  <Tab label="New Snaglist" {...a11yProps(0)} />
-                  <Tab label="Snaglist Open" {...a11yProps(1)} />
-                  <Tab label="Snaglist Closed" {...a11yProps(2)} />
+                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example"  TabIndicatorProps={{
+                  style: { backgroundColor: "#284F49" }
+                  }}>
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} > New Snaglist</Typography>{...a11yProps(0)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >Snaglist Open</Typography> {...a11yProps(1)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >Snaglist Closed</Typography> {...a11yProps(2)} />
                 </Tabs>
               </Box>
               <TabPanel value={headTab} index={0}>
@@ -318,7 +320,7 @@ const Snaglist = () => {
               </TabPanel>
             </Box>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

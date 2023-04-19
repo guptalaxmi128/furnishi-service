@@ -272,6 +272,9 @@ const Source = (props) => {
               name="source"
               value={source.source}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             <TextField
               label="Firm Name"
@@ -282,6 +285,9 @@ const Source = (props) => {
               value={source.firmName}
               onChange={handleChange}
               sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+              InputLabelProps={{
+          style: { fontSize: 12 }
+        }}
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -294,6 +300,9 @@ const Source = (props) => {
               name="firmAddress"
               value={source.firmAddress}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             <TextField
               label="Email Id"
@@ -304,6 +313,9 @@ const Source = (props) => {
               value={source.emailId}
               onChange={handleChange}
               sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -316,6 +328,9 @@ const Source = (props) => {
               name="contactNumberOne"
               value={source.contactNumberOne}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             <TextField
               label="Contact Number-2"
@@ -326,6 +341,9 @@ const Source = (props) => {
               value={source.contactNumberTwo}
               onChange={handleChange}
               sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+              InputLabelProps={{
+          style: { fontSize: 12 }
+        }}
             />
           </Box>  
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -338,6 +356,9 @@ const Source = (props) => {
               name="cordinatorName"
               value={source.cordinatorName}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             <TextField
               label="Cordinator Number"
@@ -348,10 +369,13 @@ const Source = (props) => {
               value={source.cordinatorNumber}
               onChange={handleChange}
               sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
           </Box>
           <Box>
-            <Button variant="contained" color="primary" type="submit">
+            <Button  type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important",color:'#fff'}}>
               Submit
             </Button>
           </Box>
@@ -371,7 +395,7 @@ const Source = (props) => {
                 onRequestSort={handleRequestSort}
                 onSelectAllClick={handleSelectAllClick}
               />
-              <TableBody>
+              <TableBody   sx={{border: "1px solid #dcdcdc"}}>
                 {sourcesTable.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((custInfo) => {
                   console.log(custInfo);
                   const { id, source, sourceCode, firmName, firmAddress, emailId, contactNumberOne, contactNumberTwo, cordinatorName, cordinatorNumber } =
@@ -380,41 +404,42 @@ const Source = (props) => {
 
                   return (
                     <TableRow
+                    // sx={{border: "1px solid #dcdcdc"}}
                       hover
                       key={id}
                       tabIndex={-1}
                       role="checkbox"
-                      selected={isItemSelected}
+                      selected={isItemSelected} 
                       aria-checked={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell padding="checkbox"   sx={{border: "1px solid #dcdcdc"}} >
                         <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, id)} />
                       </TableCell>
-                      <TableCell align="center">
-                        <Stack direction="row" alignItems="center" spacing={2}>
+                      <TableCell align="center"   sx={{border: "1px solid #dcdcdc", fontSize:12}}>
+                        <Stack direction="row" alignItems="center" spacing={2} >
 
                           <Typography variant="subtitle2" noWrap>
                             {sourceCode}
                           </Typography>
                         </Stack>
                       </TableCell>
-                      <TableCell align="center">{source}</TableCell>
-                      <TableCell align="left">{firmName}</TableCell>
-                      <TableCell align="left">{firmAddress}</TableCell>
-                      <TableCell align="left">{emailId}</TableCell>
-                      <TableCell align="left">
+                      <TableCell align="center"   sx={{border: "1px solid #dcdcdc",fontSize:12}}>{source}</TableCell>
+                      <TableCell align="left"   sx={{border: "1px solid #dcdcdc",fontSize:12}}>{firmName}</TableCell>
+                      <TableCell align="left"   sx={{border: "1px solid #dcdcdc",fontSize:12}}>{firmAddress}</TableCell>
+                      <TableCell align="left"   sx={{border: "1px solid #dcdcdc",fontSize:12}}>{emailId}</TableCell>
+                      <TableCell align="left" sx={{border: "1px solid #dcdcdc",fontSize:12}}>
                         <Box sx={{display:'flex', flexDirection:'column'}}>
                           <Box>
                             
                         {contactNumberOne}
                           </Box>
-                          <Box>
+                          <Box >
                             {contactNumberTwo}
                           </Box>
                         </Box>
                         </TableCell>
-                      <TableCell align="left">{cordinatorName}</TableCell>
-                      <TableCell align="left">{cordinatorNumber}</TableCell>
+                      <TableCell align="left" sx={{border: "1px solid #dcdcdc",fontSize:12}} >{cordinatorName}</TableCell>
+                      <TableCell align="left" sx={{border: "1px solid #dcdcdc",fontSize:12}}>{cordinatorNumber}</TableCell>
                      
                     </TableRow>
                   );

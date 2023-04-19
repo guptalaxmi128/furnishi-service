@@ -229,6 +229,9 @@ const Location = (props) => {
               name="name"
               value={location.name}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             <TextField
               label="Location Pin Code"
@@ -239,10 +242,13 @@ const Location = (props) => {
               value={location.pincode}
               onChange={handleChange}
               sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
           </Box>
           <Box>
-            <Button variant="contained" color="primary" type="submit">
+            <Button   type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important", color:"#fff"}}>
               Submit
             </Button>
           </Box>

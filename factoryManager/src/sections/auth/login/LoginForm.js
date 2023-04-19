@@ -19,7 +19,7 @@ export default function LoginForm() {
   const remember = true;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
@@ -68,7 +68,8 @@ export default function LoginForm() {
     }
   };
 
-  return (
+  return ( <>
+    
     <FormProvider methods={methods} onSubmit={handleSubmit}>
       <Stack spacing={3}>
         <TextField 
@@ -76,6 +77,9 @@ export default function LoginForm() {
         label="Email address" 
         value={loginForm.email}
         onChange={handleChange}
+        InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
         />
 
         <TextField
@@ -83,6 +87,9 @@ export default function LoginForm() {
           label="Password"
           value={loginForm.password}
           onChange={handleChange}
+          InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -97,15 +104,16 @@ export default function LoginForm() {
       </Stack>
 
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <RHFCheckbox name="remember" label="Remember me"/>
-        <Link variant="subtitle2" underline="hover">
+        <RHFCheckbox name="remember"  label={<span style={{ fontSize: '12px'}}>Remember me</span>}/>
+        <Link sx={{fontSize:12}} underline="hover">
           Forgot password?
         </Link>
       </Stack>
 
-      <Button fullWidth size="large" type="submit" variant="contained" >
+      <Button fullWidth size="large" type="submit" variant="contained"   sx={{fontSize:12,backgroundColor:"#284F49 !important"}}>
         Login
       </Button>
     </FormProvider>
+    </>
   );
 }

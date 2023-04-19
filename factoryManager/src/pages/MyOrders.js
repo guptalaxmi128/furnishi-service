@@ -283,22 +283,24 @@ const MyOrders = () => {
           }        
       </Modal>
       <Page title="My Orders">
-        <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+        {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Order List
           </Typography>
-          {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting
-          </Button> */}
-        </Stack>
-          <Card sx={{ p: 2 }}>
+          </Button>
+        </Stack> */}
+          <Card sx={{ paddingLeft: 1,paddingRight:1 }}>
             <Box>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example">
-                  <Tab label="New Order" {...a11yProps(0)} />
-                  <Tab label="Order Open" {...a11yProps(1)} />
-                  <Tab label="Order Closed" {...a11yProps(2)} />
+                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example"  TabIndicatorProps={{
+                  style: { backgroundColor: "#284F49" }
+                  }}>
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >New Order</Typography> {...a11yProps(0)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >Order Open</Typography> {...a11yProps(1)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >Order Closed</Typography> {...a11yProps(2)} />
                 </Tabs>
               </Box>
               <TabPanel value={headTab} index={0}>
@@ -312,7 +314,7 @@ const MyOrders = () => {
               </TabPanel>
             </Box>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

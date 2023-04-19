@@ -34,8 +34,7 @@ import { addEnquiry } from '../../actions/enquiry/enquiry';
 import { addOrder } from '../../actions/order/order';
 
 const NewOrder = (props) => {
-
-  const {cordinators, products, statuses} = props;
+  const { cordinators, products, statuses } = props;
 
   const [enquiry, setEnquiry] = useState({
     orderId: '',
@@ -98,7 +97,7 @@ const NewOrder = (props) => {
       ...enquiry,
       customerCordinator: cordinator.cordinatorName,
       customerCordinatorNumber: cordinator.cordinatorNumber,
-    })
+    });
     console.log(enquiry);
   };
 
@@ -108,7 +107,7 @@ const NewOrder = (props) => {
       ...enquiry,
       sourceCordinator: cordinator.cordinatorName,
       sourceCordinatorNumber: cordinator.cordinatorNumber,
-    })
+    });
     console.log(enquiry);
   };
   const handleFCordinatorChange = (event) => {
@@ -117,11 +116,11 @@ const NewOrder = (props) => {
       ...enquiry,
       factoryCordinator: cordinator.cordinatorName,
       factoryCordinatorNumber: cordinator.cordinatorNumber,
-    })
+    });
     console.log(enquiry);
   };
   const handleProductChange = (event) => {
-    const product = products.find((product) => product.name === event.target.value)
+    const product = products.find((product) => product.name === event.target.value);
     setEnquiry({
       ...enquiry,
       product: product.name,
@@ -180,422 +179,526 @@ const NewOrder = (props) => {
 
   return (
     <>
-        <form onSubmit={handleSubmit}>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Name"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="name"
-                value={enquiry.name}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Mobile Number"
-                variant="outlined"
-                fullWidth
-                type="number"
-                name="number"
-                value={enquiry.number}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Address"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="address"
-                value={enquiry.address}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Pin Code"
-                variant="outlined"
-                fullWidth
-                type="number"
-                name="pincode"
-                value={enquiry.pincode}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Location Code"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="number"
-                name="locationCode"
-                value={enquiry.locationCode}
-                onChange={handleChange}
-              />
-              <Box sx={{width:'100%', ml:{md:1}}}/>
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Customer Cordinator</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={enquiry.customerCordinator}
-                  label="Customer Cordinator"
-                  onChange={handleCustomerCordinatorChange}
-                >
-                  {
-                    cordinators.filter(cordinator => cordinator.cordinatorType === 'Customer').map(cordinator => (
-                      <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
-                    ))
-                  }
-                </Select>
-              </FormControl>
-              <TextField
-                label="Customer Cordinator Number"
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-                type="number"
-                name="customerCordinatorNumber"
-                value={enquiry.customerCordinatorNumber}
-                onChange={handleChange}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Source Cordinator</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={enquiry.sourceCordinator}
-                  label="Source Cordinator"
-                  onChange={handleSourceCordinatorChange}
-                >
-                  {
-                    cordinators.filter(cordinator => cordinator.cordinatorType === 'Source').map(cordinator => (
-                      <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
-                    ))
-                  }
-                </Select>
-              </FormControl>
-              <TextField
-                label="Source Cordinator Number"
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-                type="number"
-                name="sourceCordinatorNumber"
-                value={enquiry.sourceCordinatorNumber}
-                onChange={handleChange}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Factory Cordinator</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={enquiry.factoryCordinator}
-                  label="Factory Cordinator"
-                  onChange={handleFCordinatorChange}
-                >
-                  {
-                    cordinators.filter(cordinator => cordinator.cordinatorType === 'Factory').map(cordinator => (
-                      <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
-                    ))
-                  }
-                </Select>
-              </FormControl>
-              <TextField
-                label="Factory Cordinator Number"
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-                type="number"
-                name="factoryCordinatorNumber"
-                value={enquiry.factoryCordinatorNumber}
-                onChange={handleChange}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <FormControl fullWidth sx={{ mr: { md: 1 },  }}>
-                <InputLabel id="demo-simple-select-label">Product</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={enquiry.product}
-                  label="Product"
-                  onChange={handleProductChange}
-                >
-                  {
-                    products.map(product => (
-                      <MenuItem value={product.name}>{product.name}</MenuItem>
-                    ))
-                  }
-                </Select>
-              </FormControl>
-              <TextField
-                label="Product Id"
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-                type="number"
-                name="productId"
-                value={enquiry.productId}
-                // onChange={handleChange}
-                disabled
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Product Code"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="productCode"
-                value={enquiry.productCode}
-                // onChange={handleChange}
-                disabled
-              />
-              <TextField
-                label="Sale Value"
-                variant="outlined"
-                fullWidth
-                type="number"
-                name="saleValue"
-                value={enquiry.saleValue}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Material Value"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="number"
-                name="materialValue"
-                value={enquiry.materialValue}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Face Area"
-                variant="outlined"
-                fullWidth
-                type="number"
-                name="faceArea"
-                value={enquiry.faceArea}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            {/* <Box>
+      <form onSubmit={handleSubmit}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Name"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="name"
+            value={enquiry.name}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Mobile Number"
+            variant="outlined"
+            fullWidth
+            type="number"
+            name="number"
+            value={enquiry.number}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Address"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="address"
+            value={enquiry.address}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Pin Code"
+            variant="outlined"
+            fullWidth
+            type="number"
+            name="pincode"
+            value={enquiry.pincode}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Location Code"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="number"
+            name="locationCode"
+            value={enquiry.locationCode}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <Box sx={{ width: '100%', ml: { md: 1 } }} />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <FormControl fullWidth sx={{ mr: { md: 1 } }}>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Customer Cordinator
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={enquiry.customerCordinator}
+              label="Customer Cordinator"
+              onChange={handleCustomerCordinatorChange}
+            >
+              {cordinators
+                .filter((cordinator) => cordinator.cordinatorType === 'Customer')
+                .map((cordinator) => (
+                  <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
+                ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Customer Cordinator Number"
+            variant="outlined"
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            type="number"
+            name="customerCordinatorNumber"
+            value={enquiry.customerCordinatorNumber}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <FormControl fullWidth sx={{ mr: { md: 1 } }}>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Source Cordinator
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={enquiry.sourceCordinator}
+              label="Source Cordinator"
+              onChange={handleSourceCordinatorChange}
+            >
+              {cordinators
+                .filter((cordinator) => cordinator.cordinatorType === 'Source')
+                .map((cordinator) => (
+                  <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
+                ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Source Cordinator Number"
+            variant="outlined"
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            type="number"
+            name="sourceCordinatorNumber"
+            value={enquiry.sourceCordinatorNumber}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <FormControl fullWidth sx={{ mr: { md: 1 } }}>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Factory Cordinator
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={enquiry.factoryCordinator}
+              label="Factory Cordinator"
+              onChange={handleFCordinatorChange}
+            >
+              {cordinators
+                .filter((cordinator) => cordinator.cordinatorType === 'Factory')
+                .map((cordinator) => (
+                  <MenuItem value={cordinator.id}>{cordinator.cordinatorName}</MenuItem>
+                ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Factory Cordinator Number"
+            variant="outlined"
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            type="number"
+            name="factoryCordinatorNumber"
+            value={enquiry.factoryCordinatorNumber}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <FormControl fullWidth sx={{ mr: { md: 1 } }}>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Product
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={enquiry.product}
+              label="Product"
+              onChange={handleProductChange}
+            >
+              {products.map((product) => (
+                <MenuItem value={product.name}>{product.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Product Id"
+            variant="outlined"
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            type="number"
+            name="productId"
+            value={enquiry.productId}
+            // onChange={handleChange}
+            disabled
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Product Code"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="productCode"
+            value={enquiry.productCode}
+            // onChange={handleChange}
+            disabled
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Sale Value"
+            variant="outlined"
+            fullWidth
+            type="number"
+            name="saleValue"
+            value={enquiry.saleValue}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Material Value"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="number"
+            name="materialValue"
+            value={enquiry.materialValue}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Face Area"
+            variant="outlined"
+            fullWidth
+            type="number"
+            name="faceArea"
+            value={enquiry.faceArea}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        {/* <Box>
             <Typography variant="h6">Completion Target</Typography>
           </Box> */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <Box sx={{ width: '100%', mr: { md: 1 } }}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <Box sx={{ width: '100%', mr: { md: 1 } }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                fullWidth
+                disableFuture
+                label="Target Start Date"
+                openTo="year"
+                views={['year', 'month', 'day']}
+                value={enquiry.targetStartDate}
+                onChange={(newValue) => {
+                  setEnquiry({
+                    ...enquiry,
+                    targetStartDate: newValue,
+                  });
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
                     fullWidth
-                    disableFuture
-                    label="Target Start Date"
-                    openTo="year"
-                    views={['year', 'month', 'day']}
-                    value={enquiry.targetStartDate}
-                    onChange={(newValue) => {
-                      setEnquiry({
-                        ...enquiry,
-                        targetStartDate: newValue,
-                      });
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
                     }}
-                    renderInput={(params) => <TextField {...params} fullWidth />}
                   />
-                </LocalizationProvider>
-              </Box>
-              <Box sx={{ width: '100%', ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-                <LocalizationProvider dateAdapter={AdapterDayjs} sx={{ maxWidth: '100%', width: '100%' }}>
-                  <DatePicker
+                )}
+              />
+            </LocalizationProvider>
+          </Box>
+          <Box sx={{ width: '100%', ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs} sx={{ maxWidth: '100%', width: '100%' }}>
+              <DatePicker
+                fullWidth
+                disableFuture
+                label="Target End Date"
+                openTo="year"
+                views={['year', 'month', 'day']}
+                value={enquiry.targetEndDate}
+                onChange={(newValue) => {
+                  setEnquiry({
+                    ...enquiry,
+                    targetEndDate: newValue,
+                  });
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
                     fullWidth
-                    disableFuture
-                    label="Target End Date"
-                    openTo="year"
-                    views={['year', 'month', 'day']}
-                    value={enquiry.targetEndDate}
-                    onChange={(newValue) => {
-                      setEnquiry({
-                        ...enquiry,
-                        targetEndDate: newValue,
-                      });
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
                     }}
-                    renderInput={(params) => <TextField {...params} fullWidth />}
                   />
-                </LocalizationProvider>
-              </Box>
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <Box sx={{ width: '100%', mr: { md: 1 } }}>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
+                )}
+              />
+            </LocalizationProvider>
+          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <Box sx={{ width: '100%', mr: { md: 1 } }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                fullWidth
+                disableFuture
+                label="Start Date"
+                openTo="year"
+                views={['year', 'month', 'day']}
+                value={enquiry.startDate}
+                onChange={(newValue) => {
+                  setEnquiry({
+                    ...enquiry,
+                    startDate: newValue,
+                  });
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
                     fullWidth
-                    disableFuture
-                    label="Start Date"
-                    openTo="year"
-                    views={['year', 'month', 'day']}
-                    value={enquiry.startDate}
-                    onChange={(newValue) => {
-                      setEnquiry({
-                        ...enquiry,
-                        startDate: newValue,
-                      });
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
                     }}
-                    renderInput={(params) => <TextField {...params} fullWidth />}
                   />
-                </LocalizationProvider>
-              </Box>
-              <Box sx={{ width: '100%', ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-                <LocalizationProvider dateAdapter={AdapterDayjs} sx={{ maxWidth: '100%', width: '100%' }}>
-                  <DatePicker
+                )}
+              />
+            </LocalizationProvider>
+          </Box>
+          <Box sx={{ width: '100%', ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
+            <LocalizationProvider dateAdapter={AdapterDayjs} sx={{ maxWidth: '100%', width: '100%' }}>
+              <DatePicker
+                fullWidth
+                disableFuture
+                label="End Date"
+                openTo="year"
+                views={['year', 'month', 'day']}
+                value={enquiry.endDate}
+                onChange={(newValue) => {
+                  setEnquiry({
+                    ...enquiry,
+                    endDate: newValue,
+                  });
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
                     fullWidth
-                    disableFuture
-                    label="End Date"
-                    openTo="year"
-                    views={['year', 'month', 'day']}
-                    value={enquiry.endDate}
-                    onChange={(newValue) => {
-                      setEnquiry({
-                        ...enquiry,
-                        endDate: newValue,
-                      });
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
                     }}
-                    renderInput={(params) => <TextField {...params} fullWidth />}
                   />
-                </LocalizationProvider>
-              </Box>
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Total Service"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="totalService"
-                value={enquiry.totalService}
-                onChange={handleChange}
+                )}
               />
-              <TextField
-                label="Service Done"
-                variant="outlined"
-                fullWidth
-                type="text"
-                name="serviceDone"
-                value={enquiry.serviceDone}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Service Pending"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="servicePending"
-                value={enquiry.servicePending}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Service Calendar"
-                variant="outlined"
-                fullWidth
-                type="text"
-                name="serviceCalendar"
-                value={enquiry.serviceCalendar}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Estimated Cost"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="number"
-                name="estimatedCost"
-                value={enquiry.estimatedCost}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Actual Cost"
-                variant="outlined"
-                fullWidth
-                type="number"
-                name="actualCost"
-                value={enquiry.actualCost}
-                onChange={handleChange}
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Attachment"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="text"
-                name="attachment"
-                value={enquiry.attachment}
-                onChange={handleChange}
-              />
-              <TextField
-                label="Transaction History"
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-                type="number"
-                name="totalHistory"
-                value={enquiry.totalHistory}
-                onChange={handleChange}
-              />
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <TextField
-                label="Expense Till Date"
-                variant="outlined"
-                fullWidth
-                sx={{ mr: { md: 1 } }}
-                type="number"
-                name="totalExpenseTillDate"
-                value={enquiry.totalExpenseTillDate}
-                onChange={handleChange}
-              />
-              <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-                <InputLabel id="demo-simple-select-label">Status </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={enquiry.statusAction}
-                  label="Status/Action"
-                  onChange={handleStatusChange}
-                >
-                  {
-                    statuses.map((status) => (
-                      <MenuItem value={status.status}>{status.status}</MenuItem>
-                    ))
-                  }
-                </Select>
-              </FormControl>
-            </Box>
-            {/* <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+            </LocalizationProvider>
+          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Total Service"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="totalService"
+            value={enquiry.totalService}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Service Done"
+            variant="outlined"
+            fullWidth
+            type="text"
+            name="serviceDone"
+            value={enquiry.serviceDone}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Service Pending"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="servicePending"
+            value={enquiry.servicePending}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Service Calendar"
+            variant="outlined"
+            fullWidth
+            type="text"
+            name="serviceCalendar"
+            value={enquiry.serviceCalendar}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Estimated Cost"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="number"
+            name="estimatedCost"
+            value={enquiry.estimatedCost}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Actual Cost"
+            variant="outlined"
+            fullWidth
+            type="number"
+            name="actualCost"
+            value={enquiry.actualCost}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Attachment"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="text"
+            name="attachment"
+            value={enquiry.attachment}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Transaction History"
+            variant="outlined"
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            type="number"
+            name="totalHistory"
+            value={enquiry.totalHistory}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Expense Till Date"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="number"
+            name="totalExpenseTillDate"
+            value={enquiry.totalExpenseTillDate}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Status{' '}
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={enquiry.statusAction}
+              label="Status/Action"
+              onChange={handleStatusChange}
+            >
+              {statuses.map((status) => (
+                <MenuItem value={status.status}>{status.status}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+        {/* <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
               <TextField
                 label="Estimated Quote"
                 variant="outlined"
@@ -617,28 +720,31 @@ const NewOrder = (props) => {
                 onChange={handleChange}
               />
             </Box> */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-              <Grid container spacing={2}>
-                <Grid item md={6} xs={12}>
-                  <TextField
-                    label="Estimated Quote after Discount"
-                    variant="outlined"
-                    fullWidth
-                    sx={{ mr: { md: 1 } }}
-                    type="number"
-                    name="estimatedQuoteAfterDiscount"
-                    value={enquiry.estimatedQuoteAfterDiscount}
-                    onChange={handleChange}
-                  />
-                </Grid>
-              </Grid>
-            </Box>
-            <Box>
-              <Button variant="contained" color="primary" type="submit">
-                Submit
-              </Button>
-            </Box>
-          </form>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <Grid container spacing={2}>
+            <Grid item md={6} xs={12}>
+              <TextField
+                label="Estimated Quote after Discount"
+                variant="outlined"
+                fullWidth
+                sx={{ mr: { md: 1 } }}
+                type="number"
+                name="estimatedQuoteAfterDiscount"
+                value={enquiry.estimatedQuoteAfterDiscount}
+                onChange={handleChange}
+                InputLabelProps={{
+                  style: { fontSize: 12 },
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+        <Box>
+          <Button  type="submit" sx={{ fontSize: 12, backgroundColor:"#284F49 !important", color:"#fff"}}>
+            Submit
+          </Button>
+        </Box>
+      </form>
     </>
   );
 };

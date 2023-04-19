@@ -40,8 +40,8 @@ export default function UserListHead({
   };
 
   return (
-    <TableHead>
-      <TableRow>
+    <TableHead style={{border: "1px solid #dcdcdc"}}>
+      <TableRow style={{border : "1px solid #dcdcdc"}}>
         <TableCell padding="checkbox">
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -54,6 +54,7 @@ export default function UserListHead({
             key={headCell.id}
             align={headCell.alignRight ? 'left' : 'right'}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{fontSize:12 ,border:"1px solid #dcdcdc"}}
           >
             <TableSortLabel
               hideSortIcon

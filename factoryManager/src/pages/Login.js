@@ -17,6 +17,7 @@ import { images } from '../constants';
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     display: 'flex',
+   
   },
 }));
 
@@ -48,11 +49,13 @@ const SectionStyle = styled(Card)(({ theme }) => ({
 const ContentStyle = styled('div')(({ theme }) => ({
   maxWidth: 480,
   margin: 'auto',
-  minHeight: '100vh',
+  minHeight: '520px',
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
-  padding: theme.spacing(12, 0),
+  // padding: theme.spacing(12, 0),
+  padding:"20px 0px"
+  
 }));
 
 // ----------------------------------------------------------------------
@@ -63,10 +66,11 @@ export default function Login() {
   const mdUp = useResponsive('up', 'md');
 
   return (
+
     <Page title="Login">
       <RootStyle>
-        <HeaderStyle>
-          <Logo />
+        {/* <HeaderStyle> */}
+          {/* <Logo /> */}
 
           {/* {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
@@ -76,39 +80,42 @@ export default function Login() {
               </Link>
             </Typography>
           )} */}
-        </HeaderStyle>
+        {/* </HeaderStyle> */}
 
-        {mdUp && (
+        {/* {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
               Hi, Welcome Back
             </Typography>
             <img src="/static/illustrations/illustration_login.png" alt="login" />
           </SectionStyle>
-        )}
+        )} */}
 
-        <Container maxWidth="sm">
-          <ContentStyle>
-            <img src={images.furnishiLogo} alt="" height={150} width={225} style={{margin:'auto'}} />
-            <Typography variant="h4" gutterBottom sx={{textAlign:'center'}}>
-              Sign in to Furnishi
+        <Container maxWidth="sm" >
+        <Card sx={{mt:1 , boxShadow: '0 3px 5px 2px rgba(40,79,73, .5)',border:"1px solid #DFE5E4 "}} >
+          <ContentStyle >
+            <img src={images.furnishiLogo} alt="" height={120} width={120} style={{margin:'auto' ,borderRadius:20}} />
+            <Typography variant="h3" gutterBottom sx={{textAlign:'center', fontSize:14 ,mt:1}}>
+              Sign in to Furnishi Services
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5, textAlign:'center' }}>Enter your details below.</Typography>
+            <Typography sx={{ color: 'text.secondary', mb: 2, textAlign:'center',fontSize:12 }}>Enter your details below.</Typography>
 
-            <AuthSocial />
+           
 
             <LoginForm />
-
+             
+            <AuthSocial />
             {/* {!smUp && ( */}
-              <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+              <Typography  align="center" sx={{ mt: 1 ,fontSize:12 }}>
                 Don’t have an account?{' '}
-                <Link variant="subtitle2" component={RouterLink} to="/register">
+                <Link sx={{fontSize:12}} component={RouterLink} to="/register">
                   Get started
                 </Link>
               </Typography>
             {/* )} */}
           </ContentStyle>
+          </Card>
         </Container>
       </RootStyle>
     </Page>

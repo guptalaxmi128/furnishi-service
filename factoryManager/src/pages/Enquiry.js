@@ -99,7 +99,7 @@ const Enquiry = () => {
   const shutters = (useSelector((state) => state.shutter.shutters));
   const enquiryCosting = (useSelector((state) => state.costing.costing));
 
-  console.log(enquiryCosting);
+  console.log("enquiry",enquiryCosting);
 
   const [headTab, setHeadTab] = useState(0);
   const [subTab, setSubTab] = useState(0);
@@ -156,21 +156,24 @@ const Enquiry = () => {
   return (
     <>
       <Page title="Enquiry">
-        <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+        {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Enquiry
-          </Typography>
+          </Typography> */}
           {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting
           </Button> */}
-        </Stack>
-          <Card sx={{ p: 2 }}>
+        {/* </Stack> */}
+          <Card sx={{ paddingLeft: 1, paddingRight:1 }}>
             <Box>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example">
-                  <Tab label="New Enquiry" {...a11yProps(0)} />
-                  <Tab label="All Enquiries" {...a11yProps(1)} />
+                <Tabs value={headTab} onChange={handleHeadTabChange} aria-label="basic tabs example"
+                 TabIndicatorProps={{
+                  style: { backgroundColor: "#284F49" }
+                  }}>
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}}>New Enquiry</Typography> {...a11yProps(0)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} >All Enquiries</Typography>{...a11yProps(1)} />
                 </Tabs>
               </Box>
               <TabPanel value={headTab} index={0}>
@@ -181,7 +184,7 @@ const Enquiry = () => {
               </TabPanel>
             </Box>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

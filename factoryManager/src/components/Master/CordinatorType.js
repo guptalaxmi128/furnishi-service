@@ -233,12 +233,15 @@ const CordinatorType = (props) => {
               name="cordinatorType"
               value={cordinator.cordinatorType}
               onChange={handleChange}
+              InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
             </Grid>
             </Grid>
           </Box>
           <Box>
-            <Button variant="contained" color="primary" type="submit">
+            <Button  type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important",color:'#fff'}}>
               Submit
             </Button>
           </Box>
@@ -258,7 +261,7 @@ const CordinatorType = (props) => {
                 onRequestSort={handleRequestSort}
                 onSelectAllClick={handleSelectAllClick}
               />
-              <TableBody>
+              <TableBody sx={{border: "1px solid #dcdcdc"}}>
                 {cordinatorTypesTable.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((custInfo) => {
                   const { id, cordinatorType, cordinatorTypeCode } =
                     custInfo;
@@ -273,17 +276,17 @@ const CordinatorType = (props) => {
                       selected={isItemSelected}
                       aria-checked={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell padding="checkbox" sx={{border: "1px solid #dcdcdc" , fontSize:12}}>
                         <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, id)} />
                       </TableCell>
-                      <TableCell align="center">
+                      <TableCell align="center" sx={{border: "1px solid #dcdcdc", fontSize:12}}>
                         <Stack direction="row" alignItems="center" spacing={2}>
                           <Typography variant="subtitle2" noWrap>
                             {cordinatorTypeCode}
                           </Typography>
                         </Stack>
                       </TableCell>
-                      <TableCell align="left">{cordinatorType}</TableCell>
+                      <TableCell align="left" sx={{border: "1px solid #dcdcdc", fontSize:12}}>{cordinatorType}</TableCell>
                      
                     </TableRow>
                   );

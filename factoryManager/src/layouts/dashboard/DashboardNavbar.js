@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 // components
 import Iconify from '../../components/Iconify';
 //
@@ -10,11 +10,12 @@ import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
 
+
 // ----------------------------------------------------------------------
 
-const DRAWER_WIDTH = 280;
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+const DRAWER_WIDTH = 250;
+const APPBAR_MOBILE = 54;
+const APPBAR_DESKTOP = 62;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
@@ -41,16 +42,42 @@ DashboardNavbar.propTypes = {
 };
 
 export default function DashboardNavbar({ onOpenSidebar }) {
+  const changeTitle = () => {
+    switch (window.location.pathname) {
+      case '/dashboard/enquiry':
+        return 'Enquiry';
+      case '/dashboard/master':
+        return 'Master';
+      case '/dashboard/orderlist':
+        return 'Order List';
+      case '/dashboard/myOrders':
+        return 'Order List';
+      case '/dashboard/panelManager':
+        return 'Access Manager';
+      case '/dashboard/snaglist':
+        return 'Snaglist';
+      case '/dashboard/settings':
+        return 'User Settings';
+      default:
+        return 'Hi, Welcome Back';
+    }
+  };
+  const title = changeTitle();
   return (
     <RootStyle>
       <ToolbarStyle>
         <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
-        <Searchbar />
+        <Typography variant="h4" sx={{ color: 'black', marginRight: 1 }}>
+          {title}
+        </Typography>
+       
+        
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
+        <Searchbar />
           <NotificationsPopover />
           <AccountPopover />
         </Stack>

@@ -48,12 +48,14 @@ const SectionStyle = styled(Card)(({ theme }) => ({
 const ContentStyle = styled('div')(({ theme }) => ({
   maxWidth: 480,
   margin: 'auto',
-  minHeight: '100vh',
+  minHeight: '520px',
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
-  padding: theme.spacing(12, 0),
+  // padding: theme.spacing(12, 0),
+  padding:"20px 0px",
 }));
+
 
 // ----------------------------------------------------------------------
 
@@ -65,8 +67,8 @@ export default function Register() {
   return (
     <Page title="Register">
       <RootStyle>
-        <HeaderStyle>
-          <Logo />
+        {/* <HeaderStyle>
+          <Logo /> */}
           {/* {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
               Already have an account? {''}
@@ -75,49 +77,55 @@ export default function Register() {
               </Link>
             </Typography>
           )} */}
-        </HeaderStyle>
+        {/* </HeaderStyle> */}
 
-        {mdUp && (
+        {/* {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
               Manage the job more effectively with Furnishi
             </Typography>
             <img alt="register" src="/static/illustrations/illustration_register.png" />
           </SectionStyle>
-        )}
+        )} */}
 
-        <Container>
+        <Container minWidth="sm" >
+        <Card sx={{ mt :"5px !important", boxShadow: '0 3px 5px 2px rgba(40,79,73, .5)',border:"1px solid #DFE5E4 "
+        , width:"550px",margin:'auto',height:"98vh"
+        }}>
           <ContentStyle>
-          <img src={images.furnishiLogo} alt="" height={150} width={225} style={{margin:'auto'}} />
+        
+          <img src={images.furnishiLogo} alt="" height={120} width={120} style={{margin:'auto',borderRadius:20}} />
             <Typography variant="h4" gutterBottom sx={{textAlign:'center'}}>
               Get started.
             </Typography>
 
-            <AuthSocial />
+          
 
             <RegisterForm />
-
-            <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
+            <AuthSocial />
+            <Typography align="center" sx={{ color: 'text.secondary', mt: 1 ,fontSize:12 }}>
               By registering, I agree to Furnishi&nbsp;
-              <Link underline="always" color="text.primary" href="#">
-                Terms of Service
+              <Link underline="always" color="text.primary" href="#" sx={{fontSize:12}}>
+                Terms of Service&nbsp;
               </Link>
-              {''}and{''}
-              <Link underline="always" color="text.primary" href="#">
+              {''}and{''}&nbsp;
+              <Link underline="always" color="text.primary" href="#" sx={{fontSize:12}}>
                 Privacy Policy
               </Link>
               .
             </Typography>
 
             {/* {!smUp && ( */}
-              <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
+              <Typography  sx={{ mt: 1, textAlign: 'center' ,fontSize:12 }}>
                 Already have an account?{' '}
-                <Link variant="subtitle2" to="/login" component={RouterLink}>
+                <Link  to="/login" component={RouterLink}  sx={{fontSize:12}}>
                   Login
                 </Link>
               </Typography>
             {/* )} */}
+           
           </ContentStyle>
+          </Card>
         </Container>
       </RootStyle>
     </Page>

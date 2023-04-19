@@ -260,7 +260,7 @@ const AccessManager = (props) => {
         <form onSubmit={handleSubmit}>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
             <FormControl fullWidth sx={{ mr: {md: 1} }}>
-                <InputLabel id="demo-simple-select-label">Panel</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Panel</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -284,6 +284,9 @@ const AccessManager = (props) => {
                 required
                 value={assistantUser.name}
                 variant="outlined"
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
               />
             </Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -296,6 +299,9 @@ const AccessManager = (props) => {
                 required
                 value={assistantUser.mobileNumber}
                 variant="outlined"
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
                 />
                 <TextField
                 fullWidth
@@ -306,6 +312,9 @@ const AccessManager = (props) => {
                 required
                 value={assistantUser.email}
                 variant="outlined"
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
                 />
             </Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -318,6 +327,9 @@ const AccessManager = (props) => {
                 required
                 value={assistantUser.password}
                 variant="outlined"
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
                 />
                 <TextField
                 fullWidth
@@ -328,11 +340,14 @@ const AccessManager = (props) => {
                 required
                 value={assistantUser.confirmPassword}
                 variant="outlined"
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
                 />
             </Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
             <FormControl fullWidth sx={{ mr: {md: 1} }}>
-                <InputLabel id="demo-simple-select-label">Order Number</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Order Number</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -350,7 +365,7 @@ const AccessManager = (props) => {
                 <Box sx={{ width: '100%', ml: { md: 1 }, }}/>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-                <Typography variant="h6" sx={{ width: '100%', mr: { md: 1 } }}>
+                <Typography  sx={{ width: '100%', mr: { md: 1 } , fontSize:12,fontWeight:600}}>
                     Choose Access For
                 </Typography>
             </Box>
@@ -364,7 +379,9 @@ const AccessManager = (props) => {
                         name="receivedDate"
                     />
                     }
-                    label="Received Date"
+                    
+                    label={<span style={{ fontSize: '11px'}}>Received Date</span>}
+                    // label="Received Date"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -376,7 +393,8 @@ const AccessManager = (props) => {
                         name="targetDate"
                     />
                     }
-                    label="Target Date"
+                    label={<span style={{ fontSize: '11px'}}>Target Date</span>}
+                    // label="Target Date"
                 />
                 </Box>
             </Box>
@@ -390,7 +408,8 @@ const AccessManager = (props) => {
                         name="customerName"
                     />
                     }
-                    label="Customer Name"
+                    label={<span style={{ fontSize: '11px'}}>Customer Name</span>}
+                    // label="Customer Name"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -402,7 +421,8 @@ const AccessManager = (props) => {
                         name="customerNumber"
                     />
                     }
-                    label="Customer Number"
+                    label={<span style={{ fontSize: '11px'}}>Customer Number</span>}
+                    // label="Customer Number"
                 />
                 </Box>
             </Box>
@@ -416,7 +436,8 @@ const AccessManager = (props) => {
                         name="siteAddress"
                     />
                     }
-                    label="Site Address"
+                    label={<span style={{ fontSize: '11px'}}>Site Address</span>}
+                    // label="Site Address"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -428,7 +449,8 @@ const AccessManager = (props) => {
                         name="sitePincode"
                     />
                     }
-                    label="Site Pincode"
+                    label={<span style={{ fontSize: '11px'}}>Site Pincode</span>}
+                    // label="Site Pincode"
                 />
                 </Box>
             </Box>
@@ -442,7 +464,8 @@ const AccessManager = (props) => {
                         name="siteGoogleLocation"
                     />
                     }
-                    label="Site Google Location"
+                    label={<span style={{ fontSize: '11px'}}>Site Google Location</span>}
+                    // label="Site Google Location"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -454,7 +477,8 @@ const AccessManager = (props) => {
                         name="source"
                     />
                     }
-                    label="Source"
+                    label={<span style={{ fontSize: '11px'}}>Source</span>}
+                    // label="Source"
                 />
                 </Box>
             </Box>
@@ -468,7 +492,8 @@ const AccessManager = (props) => {
                         name="sourceCordinator"
                     />
                     }
-                    label="Source Cordinator"
+                    label={<span style={{ fontSize: '11px'}}>Source Cordinator</span>}
+                    // label="Source Cordinator"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -480,7 +505,8 @@ const AccessManager = (props) => {
                         name="sourceCordinatorNumber"
                     />
                     }
-                    label="Source Cordinator Number"
+                    label={<span style={{ fontSize: '11px'}}>Source Cordinator Number</span>}
+                    // label="Source Cordinator Number"
                 />
                 </Box>
             </Box>
@@ -494,7 +520,8 @@ const AccessManager = (props) => {
                         name="customerCordinator"
                     />
                     }
-                    label="Customer Cordinator"
+                    label={<span style={{ fontSize: '11px'}}>Customer Cordinator</span>}
+                    // label="Customer Cordinator"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -506,7 +533,8 @@ const AccessManager = (props) => {
                         name="customerCordinatorNumber"
                     />
                     }
-                    label="Customer Cordinator Number"
+                    label={<span style={{ fontSize: '11px'}}>Customer Cordinator Number</span>}
+                    // label="Customer Cordinator Number"
                 />
                 </Box>
             </Box>
@@ -520,7 +548,8 @@ const AccessManager = (props) => {
                         name="factoryCordinator"
                     />
                     }
-                    label="Factory Cordinator"
+                    label={<span style={{ fontSize: '11px'}}>Factory Cordinator</span>}
+                    // label="Factory Cordinator"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -532,7 +561,8 @@ const AccessManager = (props) => {
                         name="factoryCordinatorNumber"
                     />
                     }
-                    label="Factory Cordinator Number"
+                    label={<span style={{ fontSize: '11px'}}>factory Cordinator Number</span>}
+                    // label="Factory Cordinator Number"
                 />
                 </Box>
             </Box>
@@ -546,7 +576,8 @@ const AccessManager = (props) => {
                         name="product"
                     />
                     }
-                    label="Product"
+                    label={<span style={{ fontSize: '11px'}}>Product</span>}
+                    // label="Product"
                 />
                 </Box>
                 <Box sx={{ width: '100%',ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -558,7 +589,8 @@ const AccessManager = (props) => {
                         name="videosAndImages"
                     />
                     }
-                    label="Videos and Images"
+                    label={<span style={{ fontSize: '11px'}}>Videos and Images</span>}
+                    // label="Videos and Images"
                 />
                 </Box>
             </Box>
@@ -572,7 +604,8 @@ const AccessManager = (props) => {
                         name="location"
                     />
                     }
-                    label="Location"
+                    label={<span style={{ fontSize: '11px'}}>Location </span>}
+                    // label="Location"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -584,7 +617,8 @@ const AccessManager = (props) => {
                         name="noOfServices"
                     />
                     }
-                    label="No Of Services"
+                    label={<span style={{ fontSize: '11px'}}>No Of Services</span>}
+                    // label="No Of Services"
                 />
                 </Box>
             </Box>
@@ -598,7 +632,8 @@ const AccessManager = (props) => {
                         name="area"
                     />
                     }
-                    label="Area"
+                    label={<span style={{ fontSize: '11px'}}>Area</span>}
+                    // label="Area"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -610,7 +645,8 @@ const AccessManager = (props) => {
                         name="orderValue"
                     />
                     }
-                    label="Order Value"
+                    label={<span style={{ fontSize: '11px'}}>Order Value</span>}
+                    // label="Order Value"
                 />
                 </Box>
             </Box>
@@ -624,7 +660,8 @@ const AccessManager = (props) => {
                         name="paymentReceived"
                     />
                     }
-                    label="Payment Received"
+                    label={<span style={{ fontSize: '11px'}}>Payment Received</span>}
+                    // label="Payment Received"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -636,7 +673,8 @@ const AccessManager = (props) => {
                         name="currentStatus"
                     />
                     }
-                    label="Current Status"
+                    label={<span style={{ fontSize: '11px'}}>Current Status</span>}
+                    // label="Current Status"
                 />
                 </Box>
             </Box>
@@ -650,7 +688,8 @@ const AccessManager = (props) => {
                         name="factoryEngineer"
                     />
                     }
-                    label="Factory Engineer"
+                    label={<span style={{ fontSize: '11px'}}>Factory Engineer</span>}
+                    // label="Factory Engineer"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -662,7 +701,8 @@ const AccessManager = (props) => {
                         name="carcass"
                     />
                     }
-                    label="Carcass"
+                    label={<span style={{ fontSize: '11px'}}>Carcass</span>}
+                    // label="Carcass"
                 />
                 </Box>
             </Box>
@@ -676,7 +716,8 @@ const AccessManager = (props) => {
                         name="shutter"
                     />
                     }
-                    label="Shutter"
+                    // label="Shutter"
+                    label={<span style={{ fontSize: '11px'}}>Shutter</span>}
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -688,7 +729,8 @@ const AccessManager = (props) => {
                         name="salesPerson"
                     />
                     }
-                    label="Sales Person"
+                    label={<span style={{ fontSize: '11px'}}>Sales Person</span>}
+                    // label="Sales Person"
                 />
                 </Box>
             </Box>
@@ -702,7 +744,8 @@ const AccessManager = (props) => {
                         name="designer"
                     />
                     }
-                    label="Designer"
+                    label={<span style={{ fontSize: '11px'}}>Designer</span>}
+                    // label="Designer"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -714,7 +757,8 @@ const AccessManager = (props) => {
                         name="indentNumber"
                     />
                     }
-                    label="Indent Number"
+                    label={<span style={{ fontSize: '11px'}}>Indent Number</span>}
+                    // label="Indent Number"
                 />
                 </Box>
             </Box>
@@ -728,7 +772,8 @@ const AccessManager = (props) => {
                         name="finalSiteSurveyor"
                     />
                     }
-                    label="Final Site Surveyor"
+                    label={<span style={{ fontSize: '11px'}}>Final Site Surveyor</span>}
+                    // label="Final Site Surveyor"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -740,7 +785,8 @@ const AccessManager = (props) => {
                         name="workStartTime"
                     />
                     }
-                    label="Work Start Time"
+                    label={<span style={{ fontSize: '11px'}}>Work Start Time</span>}
+                    // label="Work Start Time"
                 />
                 </Box>
             </Box>
@@ -754,7 +800,8 @@ const AccessManager = (props) => {
                         name="workEndTime"
                     />
                     }
-                    label="Work End Time"
+                    label={<span style={{ fontSize: '11px'}}>Work End Time</span>}
+                    // label="Work End Time"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -766,7 +813,8 @@ const AccessManager = (props) => {
                         name="indentRelease"
                     />
                     }
-                    label="Indent Release"
+                    label={<span style={{ fontSize: '11px'}}>Indent Release</span>}
+                    // label="Indent Release"
                 />
                 </Box>
             </Box>
@@ -780,7 +828,8 @@ const AccessManager = (props) => {
                         name="accountClearance"
                     />
                     }
-                    label="Account Clearance"
+                    label={<span style={{ fontSize: '11px'}}>Account Clearance</span>}
+                    // label="Account Clearance"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -792,7 +841,8 @@ const AccessManager = (props) => {
                         name="designClearance"
                     />
                     }
-                    label="Design Clearance"
+                    label={<span style={{ fontSize: '11px'}}>Design Clearance</span>}
+                    // label="Design Clearance"
                 />
                 </Box>
             </Box>
@@ -806,7 +856,8 @@ const AccessManager = (props) => {
                         name="shopDocuments"
                     />
                     }
-                    label="Shop Documents"
+                    label={<span style={{ fontSize: '11px'}}>Shop Documents</span>}
+                    // label="Shop Documents"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -819,7 +870,8 @@ const AccessManager = (props) => {
                         name="stockCheck"
                     />
                     }
-                    label="Stock Check"
+                    label={<span style={{ fontSize: '11px'}}>Stock Check</span>}
+                    // label="Stock Check"
                 />
                 </Box>
             </Box>
@@ -833,7 +885,8 @@ const AccessManager = (props) => {
                         name="poPrepare"
                     />
                     }
-                    label="PO Prepare"
+                    label={<span style={{ fontSize: '11px'}}>PO Prepare</span>}
+                    // label="PO Prepare"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -845,7 +898,8 @@ const AccessManager = (props) => {
                         name="poRelease"
                     />
                     }
-                    label="PO Release"
+                    label={<span style={{ fontSize: '11px'}}>PO Release</span>}
+                    // label="PO Release"
                 />
                 </Box>
             </Box>
@@ -859,7 +913,8 @@ const AccessManager = (props) => {
                         name="poApproval"
                     />
                     }
-                    label="PO Approval"
+                    label={<span style={{ fontSize: '11px'}}>PO Approval</span>}
+                    // label="PO Approval"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -871,7 +926,8 @@ const AccessManager = (props) => {
                         name="jobWorkDone"
                     />
                     }
-                    label="Job Work Done"
+                    label={<span style={{ fontSize: '11px'}}>Job Work Done</span>}
+                    // label="Job Work Done"
                 />
                 </Box>
             </Box>
@@ -885,7 +941,8 @@ const AccessManager = (props) => {
                         name="rawMaterialAvailable"
                     />
                     }
-                    label="Raw Material Available"
+                    label={<span style={{ fontSize: '11px'}}>Raw Material Available</span>}
+                    // label="Raw Material Available"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -897,7 +954,8 @@ const AccessManager = (props) => {
                         name="otherMaterialAvailable"
                     />
                     }
-                    label="Other Material Available"
+                    label={<span style={{ fontSize: '11px'}}>Other Material Available</span>}
+                    // label="Other Material Available"
                 />
                 </Box>
             </Box>
@@ -911,7 +969,8 @@ const AccessManager = (props) => {
                         name="paintMaterialProduction"
                     />
                     }
-                    label="Paint Material Production"
+                    label={<span style={{ fontSize: '11px'}}>Paint Material Production</span>}
+                    // label="Paint Material Production"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -923,7 +982,8 @@ const AccessManager = (props) => {
                         name="otherMaterialProduction"
                     />
                     }
-                    label="Other Material Production"
+                    label={<span style={{ fontSize: '11px'}}>Other Material Production</span>}
+                    // label="Other Material Production"
                 />
                 </Box>
             </Box>  
@@ -937,7 +997,8 @@ const AccessManager = (props) => {
                         name="panelProduction"
                     />
                     }
-                    label="Panel Production"
+                    label={<span style={{ fontSize: '11px'}}>Panel Production</span>}
+                    // label="Panel Production"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -949,7 +1010,8 @@ const AccessManager = (props) => {
                         name="assembly"
                     />
                     }
-                    label="Assembly"
+                    label={<span style={{ fontSize: '11px'}}>Assembly</span>}
+                    // label="Assembly"
                 />
                 </Box>
             </Box>
@@ -963,7 +1025,8 @@ const AccessManager = (props) => {
                         name="cleaning"
                     />
                     }
-                    label="Cleaning"
+                    label={<span style={{ fontSize: '11px'}}>Cleaning</span>}
+                    // label="Cleaning"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 }, mt: {xs: 2, md:0 } }}>
@@ -975,7 +1038,8 @@ const AccessManager = (props) => {
                         name="packing"
                     />
                     }
-                    label="Packing"
+                    label={<span style={{ fontSize: '11px'}}>Packing</span>}
+                    // label="Packing"
                 />
                 </Box>
             </Box>
@@ -990,13 +1054,14 @@ const AccessManager = (props) => {
                         name="dispatch"
                     />
                     }
-                    label="Dispatch"
+                    label={<span style={{ fontSize: '11px'}}>Dispatch</span>}
+                    // label="Dispatch"
                 />
                 </Box>
                 <Box sx={{ width: '100%', ml: { md: 2 } }}/>
             </Box>
             <Box>
-              <Button variant="contained" color="primary" type="submit">
+              <Button  type="submit" sx={{fontSize:12,backgroundColor:"#284F49 !important", color:"#fff"}}>
                 Submit
               </Button>
             </Box>

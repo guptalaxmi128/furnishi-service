@@ -19,7 +19,7 @@ import {images} from '../../constants';
 
 // ----------------------------------------------------------------------
 
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 250;
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
@@ -69,12 +69,12 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       <Box sx={{ mt:2, mb: 5, mx: 2.5 }}>
         <Link underline="none" component={RouterLink} to="#">
           <AccountStyle>
-            <img src={images.furnishiLogo} alt="" height={50} />
+            <img src={images.furnishiLogo} alt="" height={50} style={{borderRadius:10}} />
             <Box sx={{ ml: 1 }}>
               <Typography variant="h4" sx={{ color: `text.primary`}}>
                 FURNISHI SERVICES
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="body1" sx={{ color: 'text.secondary' }}>
                 {account.role}
               </Typography>
             </Box>
@@ -87,10 +87,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           <AccountStyle>
             <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
-              <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+              <Typography  sx={{ color: 'text.primary' ,fontSize:11, fontWeight:600 }}>
                 FACTORY MANAGER
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              <Typography variant="body1" sx={{ color: 'text.secondary' }}>
                 {account.role}
               </Typography>
             </Box>

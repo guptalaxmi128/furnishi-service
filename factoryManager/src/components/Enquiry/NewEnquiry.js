@@ -186,6 +186,9 @@ const NewEnquiry = (props) => {
             name="area"
             value={enquiry.area}
             onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
           />
         </>
       );
@@ -194,7 +197,9 @@ const NewEnquiry = (props) => {
       return (
         <>
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">Product</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Product
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -272,7 +277,7 @@ const NewEnquiry = (props) => {
       liveStreamingPrice: costing.liveStreaming,
       installationRecordingPrice: costing.installationRecording,
       area: enquiry.area,
-      
+
       installation: enquiry.installation,
       deepClean: enquiry.deepClean,
       liveStreaming: enquiry.liveStreaming,
@@ -310,7 +315,7 @@ const NewEnquiry = (props) => {
         amcData: enquiry.amcData,
         product: enquiry.product,
         total: returnTotal(),
-      }
+      };
       dispatch(addInvoice(invoiceData, navigate));
       setEnquiry({
         targetDate: null,
@@ -339,6 +344,7 @@ const NewEnquiry = (props) => {
   };
 
   console.log(costingDataState);
+  console.log(enquiry.targetDate)
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -357,7 +363,16 @@ const NewEnquiry = (props) => {
                     targetDate: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    fullWidth
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
+                    }}
+                    value={enquiry.targetDate}
+                  />
+                )}
               />
             </LocalizationProvider>
           </Box>
@@ -370,6 +385,9 @@ const NewEnquiry = (props) => {
             required
             value={enquiry.sitePincode}
             variant="outlined"
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
           />
         </Box>
         {/* <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -402,7 +420,9 @@ const NewEnquiry = (props) => {
             </Box> */}
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Status
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -416,7 +436,9 @@ const NewEnquiry = (props) => {
             </Select>
           </FormControl>
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">Carcass</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Carcass
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -432,7 +454,9 @@ const NewEnquiry = (props) => {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Shutter</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Shutter
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -459,7 +483,16 @@ const NewEnquiry = (props) => {
                     dispatch: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    fullWidth
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
+                    }}
+                    value={enquiry.dispatch}
+                  />
+                )}
               />
             </LocalizationProvider>
           </Box>
@@ -476,7 +509,16 @@ const NewEnquiry = (props) => {
                     workStartTime: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    fullWidth
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
+                    }}
+                    value={enquiry.workStartTime}
+                  />
+                )}
               />
             </Box>
             <Box sx={{ width: '100%', ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
@@ -489,7 +531,16 @@ const NewEnquiry = (props) => {
                     workEndTime: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    fullWidth
+                    InputLabelProps={{
+                      style: { fontSize: 12 },
+                    }}
+                    value={enquiry.workEndTime}
+                  />
+                )}
               />
             </Box>
           </LocalizationProvider>
@@ -504,9 +555,14 @@ const NewEnquiry = (props) => {
             name="estimate"
             value={enquiry.estimate}
             onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
           />
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">Action</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Action
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -522,7 +578,9 @@ const NewEnquiry = (props) => {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Deep Clean</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Deep Clean
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -535,7 +593,9 @@ const NewEnquiry = (props) => {
             </Select>
           </FormControl>
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">Live Streaming</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Live Streaming
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -550,7 +610,9 @@ const NewEnquiry = (props) => {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Installation Recording</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Installation Recording
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -563,7 +625,9 @@ const NewEnquiry = (props) => {
             </Select>
           </FormControl>
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">AMC</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              AMC
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -578,7 +642,9 @@ const NewEnquiry = (props) => {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Enquiry Type</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{ fontSize: 12 }}>
+              Enquiry Type
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -605,12 +671,15 @@ const NewEnquiry = (props) => {
               name="amcData"
               value={enquiry.amcData}
               onChange={handleChange}
+              InputLabelProps={{
+                style: { fontSize: 12 },
+              }}
             />
             <Box sx={{ width: '100%', ml: { md: 1 } }} />
           </Box>
         ) : null}
         <Box>
-          <Button variant="contained" color="primary" type="submit">
+          <Button type="submit" sx={{ fontSize: 12, backgroundColor: "#284F49 !important", color:"#fff" }}>
             Submit
           </Button>
         </Box>

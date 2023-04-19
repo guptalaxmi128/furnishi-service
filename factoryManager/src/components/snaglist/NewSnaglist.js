@@ -229,6 +229,9 @@ const NewSnaglist = (props) => {
             name="name"
             value={enquiry.name}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Mobile Number"
@@ -239,6 +242,9 @@ const NewSnaglist = (props) => {
             value={enquiry.number}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -251,6 +257,9 @@ const NewSnaglist = (props) => {
             name="address"
             value={enquiry.address}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Pin Code"
@@ -261,6 +270,9 @@ const NewSnaglist = (props) => {
             value={enquiry.pincode}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -273,12 +285,15 @@ const NewSnaglist = (props) => {
             name="locationCode"
             value={enquiry.locationCode}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <Box sx={{ width: '100%', ml: { md: 1 } }} />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Customer Cordinator</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Customer Cordinator</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -302,11 +317,14 @@ const NewSnaglist = (props) => {
             name="customerCordinatorNumber"
             value={enquiry.customerCordinatorNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Source Cordinator</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Source Cordinator</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -330,11 +348,14 @@ const NewSnaglist = (props) => {
             name="sourceCordinatorNumber"
             value={enquiry.sourceCordinatorNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Factory Cordinator</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Factory Cordinator</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -358,11 +379,14 @@ const NewSnaglist = (props) => {
             name="factoryCordinatorNumber"
             value={enquiry.factoryCordinatorNumber}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-            <InputLabel id="demo-simple-select-label">Product</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Product</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -385,6 +409,9 @@ const NewSnaglist = (props) => {
             value={enquiry.productId}
             // onChange={handleChange}
             disabled
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -398,6 +425,9 @@ const NewSnaglist = (props) => {
             value={enquiry.productCode}
             // onChange={handleChange}
             disabled
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Sale Value"
@@ -408,6 +438,9 @@ const NewSnaglist = (props) => {
             value={enquiry.saleValue}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -420,6 +453,9 @@ const NewSnaglist = (props) => {
             name="materialValue"
             value={enquiry.materialValue}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Face Area"
@@ -430,6 +466,9 @@ const NewSnaglist = (props) => {
             value={enquiry.faceArea}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         {/* <Box>
@@ -451,7 +490,9 @@ const NewSnaglist = (props) => {
                     targetStartDate: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => <TextField {...params} fullWidth     InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}/>}
               />
             </LocalizationProvider>
           </Box>
@@ -470,7 +511,9 @@ const NewSnaglist = (props) => {
                     targetEndDate: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => <TextField {...params} fullWidth    InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}/>}
               />
             </LocalizationProvider>
           </Box>
@@ -491,7 +534,9 @@ const NewSnaglist = (props) => {
                     startDate: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => <TextField {...params} fullWidth     InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}/>}
               />
             </LocalizationProvider>
           </Box>
@@ -510,14 +555,16 @@ const NewSnaglist = (props) => {
                     endDate: newValue,
                   });
                 }}
-                renderInput={(params) => <TextField {...params} fullWidth />}
+                renderInput={(params) => <TextField {...params} fullWidth    InputLabelProps={{
+          style: { fontSize: 12 } 
+        }} />}
               />
             </LocalizationProvider>
           </Box>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
             <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Issue</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Issue</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -542,11 +589,14 @@ const NewSnaglist = (props) => {
                 name="reason"
                 value={enquiry.reason}
                 onChange={handleChange}
+                InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
             />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
             <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Solution</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Solution</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -563,7 +613,7 @@ const NewSnaglist = (props) => {
                 </Select>
             </FormControl>
             <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-                <InputLabel id="demo-simple-select-label">Action</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Action</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -582,7 +632,7 @@ const NewSnaglist = (props) => {
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
             <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-                <InputLabel id="demo-simple-select-label">Cost</InputLabel>
+                <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Cost</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -607,6 +657,9 @@ const NewSnaglist = (props) => {
             name="attachment"
             value={enquiry.attachment}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -619,6 +672,9 @@ const NewSnaglist = (props) => {
             name="pic"
             value={enquiry.pic}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Video"
@@ -629,6 +685,9 @@ const NewSnaglist = (props) => {
             name="video"
             value={enquiry.video}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -641,6 +700,9 @@ const NewSnaglist = (props) => {
             name="totalService"
             value={enquiry.totalService}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Service Done"
@@ -651,6 +713,9 @@ const NewSnaglist = (props) => {
             value={enquiry.serviceDone}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -663,6 +728,9 @@ const NewSnaglist = (props) => {
             name="servicePending"
             value={enquiry.servicePending}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Service Calendar"
@@ -673,6 +741,9 @@ const NewSnaglist = (props) => {
             value={enquiry.serviceCalendar}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -685,6 +756,9 @@ const NewSnaglist = (props) => {
             name="estimatedCost"
             value={enquiry.estimatedCost}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <TextField
             label="Actual Cost"
@@ -695,6 +769,9 @@ const NewSnaglist = (props) => {
             value={enquiry.actualCost}
             onChange={handleChange}
             sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
@@ -707,7 +784,11 @@ const NewSnaglist = (props) => {
             name="totalExpenseTillDate"
             value={enquiry.totalExpenseTillDate}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
+
           <TextField
             label="Transaction History"
             variant="outlined"
@@ -717,6 +798,9 @@ const NewSnaglist = (props) => {
             name="totalHistory"
             value={enquiry.totalHistory}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
         </Box>
        
@@ -768,9 +852,12 @@ const NewSnaglist = (props) => {
             name="estimatedQuoteAfterDiscount"
             value={enquiry.estimatedQuoteAfterDiscount}
             onChange={handleChange}
+            InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
           />
           <FormControl fullWidth sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}>
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
+            <InputLabel id="demo-simple-select-label" sx={{fontSize:12}}>Status</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -788,7 +875,7 @@ const NewSnaglist = (props) => {
           </FormControl>
         </Box>
         <Box>
-          <Button variant="contained" color="primary" type="submit">
+          <Button  sx={{fontSize:12,backgroundColor:"#284F49 !important", color:"#fff"}}>
             Submit
           </Button>
         </Box>

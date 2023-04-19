@@ -38,11 +38,8 @@ const style = {
 };
 
 const Settings = () => {
-
   const user = JSON.parse(localStorage.getItem('profile')).data;
   console.log(user);
-
-  
 
   const [userInfo, setUserInfo] = useState({
     email: user.email,
@@ -72,22 +69,21 @@ const Settings = () => {
         confirmPassword: '',
         oldPassword: '',
       });
-      alert("Password updated successfully");
+      alert('Password updated successfully');
     } catch (error) {
       console.log(error);
     }
   };
 
-
   return (
     <>
       <Page title="User">
-        <Container>
-          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+          {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4" gutterBottom>
              User Settings
             </Typography>
-          </Stack>
+          </Stack> */}
           <Card sx={{ p: 2 }}>
             <Box>
               {/* <Box>
@@ -95,76 +91,75 @@ const Settings = () => {
                   Personal Details
                 </Typography>
               </Box> */}
-              <Box sx={{mt:1, mb:1}}>
-                <Typography variant="h6" >
-                  Email : {user.email}
-                </Typography>
+              <Box sx={{ mt: 1, mb: 1 }}>
+                <Typography sx={{ fontSize: 12, fontWeight: 600 }}>Email : {user.email}</Typography>
               </Box>
-              <Box sx={{mt:1, mb:1}}>
-                <Typography variant="h6" >
-                  Password : ********
-                </Typography>
+              <Box sx={{ mt: 1, mb: 1 }}>
+                <Typography sx={{ fontSize: 12, fontWeight: 600 }}>Password : ********</Typography>
               </Box>
             </Box>
-            <form onSubmit={handleSubmit} style={{marginTop:'30px'}}>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mb: 2, alignItems:'center' }}>
-                <Box sx={{width:'100%', maxWidth:'150px'}}>
-                    New Password
-                </Box>
+            <form onSubmit={handleSubmit} style={{ marginTop: '30px' }}>
+              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mb: 2, alignItems: 'center' }}>
+                <Box sx={{ width: '100%', maxWidth: '150px' ,fontSize:12 }}>New Password</Box>
                 <TextField
                   label="New Password"
                   required
                   variant="outlined"
                   fullWidth
-                  sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth:{md:'300px'} }}
+                  sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth: { md: '300px' } }}
                   type="password"
                   name="password"
                   value={userInfo.password}
                   onChange={handleChange}
+                  InputLabelProps={{
+          style: { fontSize: 12 } 
+        }}
                 />
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 , alignItems:'center' }}>
-              <Box sx={{width:'100%', maxWidth:'150px'}}>
-                  
-                  New Password
+              <Box
+                sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2, alignItems: 'center' }}
+              >
+                <Box sx={{ width: '100%', maxWidth: '150px' ,fontSize:12 }}>New Password</Box>
+                <TextField
+                  label="Confirm Password"
+                  required
+                  variant="outlined"
+                  fullWidth
+                  sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth: { md: '300px' } }}
+                  type="password"
+                  name="confirmPassword"
+                  value={userInfo.confirmPassword}
+                  onChange={handleChange}
+                  InputLabelProps={{
+                    style: { fontSize: 12 },
+                  }}
+                />
               </Box>
-              <TextField
-                label="Confirm Password"
-                required
-                variant="outlined"
-                fullWidth
-                sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth:{md:'300px'} }}
-                type="password"
-                name="confirmPassword"
-                value={userInfo.confirmPassword}
-                onChange={handleChange}
-              />
-              </Box>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mb: 2, alignItems:'center'  }}>
-              <Box sx={{width:'100%', maxWidth:'150px'}}>
-                  
-                    Old Password
-                </Box>
+              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mb: 2, alignItems: 'center' }}>
+                <Box sx={{ width: '100%', maxWidth: '150px' ,fontSize:12 }}>Old Password</Box>
                 <TextField
                   label="Old Password"
                   required
                   variant="outlined"
                   fullWidth
-                  sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth:{md:'300px'} }}
+                  sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 }, maxWidth: { md: '300px' } }}
                   type="password"
                   name="oldPassword"
                   value={userInfo.oldPassword}
                   onChange={handleChange}
+                  InputLabelProps={{
+                    style: { fontSize: 12 },
+                  }}
                 />
               </Box>
               <Box>
-                <Button variant="contained" color="primary" type="submit">
+                <Button  type="submit" sx={{ fontSize: 12, backgroundColor:"#284F49 !important", color:"#fff" }}>
                   Update Password
                 </Button>
               </Box>
             </form>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

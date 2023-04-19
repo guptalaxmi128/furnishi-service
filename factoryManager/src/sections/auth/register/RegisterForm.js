@@ -42,7 +42,6 @@ export default function RegisterForm() {
     });
   };
 
-
   const methods = useForm({
     resolver: yupResolver(RegisterSchema),
     // defaultValues,
@@ -58,9 +57,9 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(registerForm);
-    try{
+    try {
       dispatch(register(registerForm, navigate));
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   };
@@ -68,18 +67,47 @@ export default function RegisterForm() {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit}>
       <Stack spacing={3}>
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-          <TextField name="firstName" label="First name" fullWidth value={registerForm.firstName} onChange={handleChange} />
-          <TextField name="lastName" label="Last name" fullWidth value={registerForm.lastName} onChange={handleChange} />
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+          <TextField
+            name="firstName"
+            label="First name"
+            fullWidth
+            value={registerForm.firstName}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            name="lastName"
+            label="Last name"
+            fullWidth
+            value={registerForm.lastName}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
         </Stack>
 
-        <TextField name="email" label="Email address" value={registerForm.email} onChange={handleChange} />
+        <TextField
+          name="email"
+          label="Email address"
+          value={registerForm.email}
+          onChange={handleChange}
+          InputLabelProps={{
+            style: { fontSize: 12 },
+          }}
+        />
 
         <TextField
           name="password"
           label="Password"
           value={registerForm.password}
           onChange={handleChange}
+          InputLabelProps={{
+            style: { fontSize: 12 },
+          }}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
@@ -92,7 +120,13 @@ export default function RegisterForm() {
           }}
         />
 
-        <Button fullWidth size="large" type="submit" variant="contained" >
+        <Button
+          fullWidth
+          size="large"
+          type="submit"
+          variant="contained"
+          sx={{ fontSize: 12, backgroundColor: '#284F49 !important' }}
+        >
           Register
         </Button>
       </Stack>

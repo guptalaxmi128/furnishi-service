@@ -133,16 +133,18 @@ const Master = () => {
   return (
     <>
       <Page title="Master">
-        <Container>
-          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+        {/* <Container> */}
+          {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4" gutterBottom>
               Master
             </Typography>
-            {/* <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+            <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Setting
-          </Button> */}
-          </Stack>
-          <Card sx={{ p: 2 }}>
+          </Button>
+          </Stack> */}
+          <Card 
+          sx={{ paddingLeft: 1,paddingRight:1 }}
+          >
             <Box>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs
@@ -150,27 +152,30 @@ const Master = () => {
                   onChange={handleHeadTabChange}
                   variant="scrollable"
                   aria-label="basic tabs example"
+                  TabIndicatorProps={{
+                  style: { backgroundColor: "#284F49" }
+                  }}
                 >
-                  <Tab label="Source" {...a11yProps(0)} />
-                  <Tab label="Cordinator Type" {...a11yProps(1)} />
-                  <Tab label="Cordinator" {...a11yProps(2)} />
-                  <Tab label="Product" {...a11yProps(3)} />
-                  <Tab label="Factory Info" {...a11yProps(4)} />
-                  <Tab label="Status/Action" {...a11yProps(5)} />
-                  <Tab label="Status" {...a11yProps(6)} />
-                  <Tab label="Snag Issue" {...a11yProps(7)} />
-                  <Tab label="Snag Solution" {...a11yProps(8)} />
-                  <Tab label="Snag Action" {...a11yProps(9)} />
-                  <Tab label="Snag Cost" {...a11yProps(10)} />
-                  <Tab label="Location" {...a11yProps(11)} />
-                  <Tab label="Carcass" {...a11yProps(12)} />
-                  <Tab label="Shutter" {...a11yProps(13)} />
-                  <Tab label="Sales Person" {...a11yProps(14)} />
-                  <Tab label="Designer" {...a11yProps(15)} />
-                  <Tab label="Planner" {...a11yProps(16)} />
-                  <Tab label="Site Surveyor" {...a11yProps(17)} />
-                  <Tab label="Factory Engineer" {...a11yProps(18)} />
-                  <Tab label="Panel" {...a11yProps(19)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12 ,color:"#284F49"}} > Source</Typography> {...a11yProps(0)}/>
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}}>Cordinator Type</Typography> {...a11yProps(1)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Cordinator</Typography> {...a11yProps(2)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Product</Typography> {...a11yProps(3)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Factory Info</Typography> {...a11yProps(4)} />
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Status/Action</Typography> {...a11yProps(5)} />
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Status</Typography> {...a11yProps(6)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Snag Issue</Typography> {...a11yProps(7)} />
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Snag Solution</Typography>{...a11yProps(8)} />
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Snag Action</Typography>{...a11yProps(9)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Snag Cost</Typography> {...a11yProps(10)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Location</Typography> {...a11yProps(11)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Carcass</Typography>{...a11yProps(12)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Shutter</Typography> {...a11yProps(13)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Sales Person</Typography> {...a11yProps(14)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Designer</Typography> {...a11yProps(15)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Planner</Typography>{...a11yProps(16)} />
+                  <Tab label= <Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Site Surveyor</Typography> {...a11yProps(17)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} >Factory Engineer</Typography> {...a11yProps(18)} />
+                  <Tab label=<Typography variant="h6" style={{ fontSize:12,color:"#284F49"}} > Panel</Typography> {...a11yProps(19)} />
                   {/* <Tab label="Work Type" {...a11yProps(12)} /> */}
                 </Tabs>
               </Box>
@@ -239,7 +244,7 @@ const Master = () => {
               </TabPanel>
             </Box>
           </Card>
-        </Container>
+        {/* </Container> */}
       </Page>
     </>
   );

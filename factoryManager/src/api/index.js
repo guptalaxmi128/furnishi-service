@@ -1,107 +1,107 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const API = axios.create({
-    // baseURL: 'https://furnishi.herokuapp.com/api/furnishi'
-    // baseURL: 'http://localhost:5000/api/furnishi'
-    // baseURL: 'https://furnishi.onrender.com/api/furnishi'
-    baseURL: 'https://furnishi-zh4d.onrender.com/api/furnishi'
+  // baseURL: 'https://furnishi.herokuapp.com/api/furnishi'
+  baseURL: 'http://localhost:5000/api/furnishi',
+  // baseURL: 'https://furnishi.onrender.com/api/furnishi'
+  // baseURL: 'https://furnishi-zh4d.onrender.com/api/furnishi'
 });
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')){
-        req.headers.Authorization = `Bearer $(JSON.parse(localStorage.getItem('profile')).token)`;
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).authToken}`;
     }
     return req;
 } , (error) => {
     return Promise.reject(error);
 } );
 
-export const login = (authInfo) => API.post("/login", authInfo);
-export const register = (authInfo) => API.post("/register", authInfo);
-export const updatePassword = (authInfo) => API.post("/updatePassword", authInfo);
 
-export const addSource = (sourceInfo) => API.post("/addSource", sourceInfo);
-export const getSources = () => API.get("/getSources");
+export const login = (authInfo) => API.post('/login', authInfo);
+export const register = (authInfo) => API.post('/register', authInfo);
+export const updatePassword = (authInfo) => API.post('/updatePassword', authInfo);
 
-export const addCordinatorType = (cordinatorTypeInfo) => API.post("/addCordinatorType", cordinatorTypeInfo);
-export const getCordinatorTypes = () => API.get("/getCordinatorTypes");
+export const addSource = (sourceInfo) => API.post('/addSource', sourceInfo);
+export const getSources = () => API.get('/getSources');
 
-export const addCordinator = (cordinatorInfo) => API.post("/addCordinator", cordinatorInfo);
-export const getCordinators = () => API.get("/getCordinators");
+export const addCordinatorType = (cordinatorTypeInfo) => API.post('/addCordinatorType', cordinatorTypeInfo);
+export const getCordinatorTypes = () => API.get('/getCordinatorTypes');
 
-export const addProduct = (productInfo) => API.post("/addProduct", productInfo);
-export const getProducts = () => API.get("/getProducts");
+export const addCordinator = (cordinatorInfo) => API.post('/addCordinator', cordinatorInfo);
+export const getCordinators = () => API.get('/getCordinators');
 
-export const addFactoryInfo = (factoryInfo) => API.post("/addFactoryInfo", factoryInfo);
-export const getFactoryInfos = () => API.get("/getFactoryInfos");
+export const addProduct = (productInfo) => API.post('/addProduct', productInfo);
+export const getProducts = () => API.get('/getProducts');
 
-export const addLocation = (locationInfo) => API.post("/addLocation", locationInfo);
-export const getLocations = () => API.get("/getLocations");
+export const addFactoryInfo = (factoryInfo) => API.post('/addFactoryInfo', factoryInfo);
+export const getFactoryInfos = () => API.get('/getFactoryInfos');
 
-export const addSnagAction = (snagActionInfo) => API.post("/addSnagAction", snagActionInfo);
-export const getSnagActions = () => API.get("/getSnagActions");
+export const addLocation = (locationInfo) => API.post('/addLocation', locationInfo);
+export const getLocations = () => API.get('/getLocations');
 
-export const addSnagCost = (snagCostInfo) => API.post("/addSnagCost", snagCostInfo);
-export const getSnagCosts = () => API.get("/getSnagCosts");
+export const addSnagAction = (snagActionInfo) => API.post('/addSnagAction', snagActionInfo);
+export const getSnagActions = () => API.get('/getSnagActions');
 
-export const addSnagIssue = (snagIssueInfo) => API.post("/addSnagIssue", snagIssueInfo);
-export const getSnagIssues = () => API.get("/getSnagIssues");
+export const addSnagCost = (snagCostInfo) => API.post('/addSnagCost', snagCostInfo);
+export const getSnagCosts = () => API.get('/getSnagCosts');
 
-export const addSnagSolution = (snagSolutionInfo) => API.post("/addSnagSolution", snagSolutionInfo);
-export const getSnagSolutions = () => API.get("/getSnagSolutions");
+export const addSnagIssue = (snagIssueInfo) => API.post('/addSnagIssue', snagIssueInfo);
+export const getSnagIssues = () => API.get('/getSnagIssues');
 
-export const addStatus = (statusInfo) => API.post("/addStatus", statusInfo);
-export const getStatuses = () => API.get("/getStatuses");
+export const addSnagSolution = (snagSolutionInfo) => API.post('/addSnagSolution', snagSolutionInfo);
+export const getSnagSolutions = () => API.get('/getSnagSolutions');
 
-export const addStatusAction = (statusActionInfo) => API.post("/addStatusAction", statusActionInfo);
-export const getStatusActions = () => API.get("/getStatusActions");
+export const addStatus = (statusInfo) => API.post('/addStatus', statusInfo);
+export const getStatuses = () => API.get('/getStatuses');
 
-export const addWorkType = (workTypeInfo) => API.post("/addWorkType", workTypeInfo);
-export const getWorkTypes = () => API.get("/getWorkTypes");
+export const addStatusAction = (statusActionInfo) => API.post('/addStatusAction', statusActionInfo);
+export const getStatusActions = () => API.get('/getStatusActions');
 
-export const addEnquiry = (enquiryInfo) => API.post("/addEnquiry", enquiryInfo);
-export const getEnquiries = () => API.get("/getEnquiries");
+export const addWorkType = (workTypeInfo) => API.post('/addWorkType', workTypeInfo);
+export const getWorkTypes = () => API.get('/getWorkTypes');
 
-export const addOrder = (orderInfo) => API.post("/addOrder", orderInfo);
-export const getOrders = () => API.get("/getOrders");
+export const addEnquiry = (enquiryInfo) => API.post('/addEnquiry', enquiryInfo);
+export const getEnquiries = () => API.get('/getEnquiries');
 
-export const addSnaglist = (snaglistInfo) => API.post("/addSnaglist", snaglistInfo);
-export const getSnaglists = () => API.get("/getSnaglists")
+export const addOrder = (orderInfo) => API.post('/addOrder', orderInfo);
+export const getOrders = () => API.get('/getOrders');
 
-export const addCarcass = (carcassInfo) => API.post("/addCarcass", carcassInfo);
-export const getCarcasses = () => API.get("/getCarcasses");
+export const addSnaglist = (snaglistInfo) => API.post('/addSnaglist', snaglistInfo);
+export const getSnaglists = () => API.get('/getSnaglists');
 
+export const addCarcass = (carcassInfo) => API.post('/addCarcass', carcassInfo);
+export const getCarcasses = () => API.get('/getCarcasses');
 
-export const addShutter = (shutterInfo) => API.post("/addShutter", shutterInfo);
-export const getShutters = () => API.get("/getShutters");
+export const addShutter = (shutterInfo) => API.post('/addShutter', shutterInfo);
+export const getShutters = () => API.get('/getShutters');
 
-export const addSalesPerson = (salesPersonInfo) => API.post("/addSalesPerson", salesPersonInfo);
-export const getSalesPersons = () => API.get("/getSalesPersons");
+export const addSalesPerson = (salesPersonInfo) => API.post('/addSalesPerson', salesPersonInfo);
+export const getSalesPersons = () => API.get('/getSalesPersons');
 
-export const addDesigner = (designerInfo) => API.post("/addDesigner", designerInfo);
-export const getDesigners = () => API.get("/getDesigners");
+export const addDesigner = (designerInfo) => API.post('/addDesigner', designerInfo);
+export const getDesigners = () => API.get('/getDesigners');
 
-export const addPlanner = (plannerInfo) => API.post("/addPlanner", plannerInfo);
-export const getPlanners = () => API.get("/getPlanners");
+export const addPlanner = (plannerInfo) => API.post('/addPlanner', plannerInfo);
+export const getPlanners = () => API.get('/getPlanners');
 
-export const addSiteSurveyor = (siteSurveyorInfo) => API.post("/addFinalSiteSurveyor", siteSurveyorInfo);
-export const getSiteSurveyors = () => API.get("/getFinalSiteSurveyors");
+export const addSiteSurveyor = (siteSurveyorInfo) => API.post('/addFinalSiteSurveyor', siteSurveyorInfo);
+export const getSiteSurveyors = () => API.get('/getFinalSiteSurveyors');
 
-export const addOrderList = (orderlistInfo) => API.post("/addOrderList", orderlistInfo);
-export const getOrderLists = () => API.get("/getOrderLists");
+export const addOrderList = (orderlistInfo) => API.post('/addOrderList', orderlistInfo);
+export const getOrderLists = () => API.get('/getOrderLists');
 
-export const addFactoryEngineer = (factoryEngineerInfo) => API.post("/addFactoryEngineer", factoryEngineerInfo);
-export const getFactoryEngineers = () => API.get("/getFactoryEngineers");
+export const addFactoryEngineer = (factoryEngineerInfo) => API.post('/addFactoryEngineer', factoryEngineerInfo);
+export const getFactoryEngineers = () => API.get('/getFactoryEngineers');
 
-export const addFurnishiOrder = (furnishiOrderInfo) => API.post("/addFurnishiOrder", furnishiOrderInfo);
-export const getFurnishiOrders = () => API.get("/getFurnishiOrders");
+export const addFurnishiOrder = (furnishiOrderInfo) => API.post('/addFurnishiOrder', furnishiOrderInfo);
+export const getFurnishiOrders = () => API.get('/getFurnishiOrders');
 
-export const addPanel = (panelInfo) => API.post("/addPanel", panelInfo);
-export const getPanels = () => API.get("/getPanels");
+export const addPanel = (panelInfo) => API.post('/addPanel', panelInfo);
+export const getPanels = () => API.get('/getPanels');
 
-export const addAssistantUser = (assistantUserInfo) => API.post("/registerAssistant", assistantUserInfo);
-export const getAssistantUsers = () => API.get("/getAllAssistantUsers");
+export const addAssistantUser = (assistantUserInfo) => API.post('/registerAssistant', assistantUserInfo);
+export const getAssistantUsers = () => API.get('/getAllAssistantUsers');
 
-export const getHistory = () => API.get("/getHistory");
+export const getHistory = () => API.get('/getHistory');
 
 export const getEnquiryCosting = () => API.get(`/getEnquiryCosting`);

@@ -5,7 +5,7 @@ const panelReducer = (state = { panels: [] }, action) => {
         case actionType.GET_ALL_PANELS:
             return { ...state, panels: action.payload };
         case actionType.ADD_NEW_PANEL:
-            return { ...state, panels: [...state.locations, action.payload] };
+            return { ...state, panels: [...state.panels, action.payload] };
         default:
             return state;
     }

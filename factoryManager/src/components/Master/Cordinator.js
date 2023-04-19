@@ -80,8 +80,8 @@ function applySortFilter(array, comparator, query) {
 }
 
 const CordinatorMaster = (props) => {
-  const {sources, cordinatorTypes, cordinators} = props;
-  const [ cordinatorsTable, setCordinatorsTable ] = useState(cordinators);
+  const { sources, cordinatorTypes, cordinators } = props;
+  const [cordinatorsTable, setCordinatorsTable] = useState(cordinators);
   console.log('sources', sources);
   console.log('cordinatorTypes', cordinatorTypes);
 
@@ -145,200 +145,215 @@ const CordinatorMaster = (props) => {
   const filteredUsers = applySortFilter(cordinatorsTable, getComparator(order, orderBy), filterName);
 
   const isUserNotFound = filteredUsers.length === 0;
-  
-    const [cordinator, setCordinator] = useState({
-    sourceCode:'',
-    firmName:'',
-    firmAddress:'',
-    cordinatorType:'',
-    cordinatorName:'',
-    cordinatorNumber:'',
-    cordinatorEmailID:'',
-    });
-  
-    const handleChange = ({ currentTarget: input }) => {
-        setCordinator({
-        ...cordinator,
-        [input.name]: input.value,
-      });
-      console.log(cordinator);
-    };
-  
-    const [age, setAge] = React.useState('');
-  
-    const handleSourceCodeChange = (event) => {
 
-        setCordinator({
-        ...cordinator,
-        sCode: event.target.value,
-      });
+  const [cordinator, setCordinator] = useState({
+    sourceCode: '',
+    firmName: '',
+    firmAddress: '',
+    cordinatorType: '',
+    cordinatorName: '',
+    cordinatorNumber: '',
+    cordinatorEmailID: '',
+  });
+
+  const handleChange = ({ currentTarget: input }) => {
+    setCordinator({
+      ...cordinator,
+      [input.name]: input.value,
+    });
+    console.log(cordinator);
+  };
+
+  const [age, setAge] = React.useState('');
+
+  const handleSourceCodeChange = (event) => {
+    setCordinator({
+      ...cordinator,
+      sCode: event.target.value,
+    });
+    console.log(cordinator);
+  };
+  const handleSourceChange = (event) => {
+    console.log(event.target);
+    const source = sources.find((source) => source.id === event.target.value);
+    setCordinator({
+      ...cordinator,
+      source: source.source,
+      sourceCode: source.sourceCode,
+      firmName: source.firmName,
+      firmAddress: source.firmAddress,
+    });
+    console.log(cordinator);
+  };
+  const handleFNameChange = (event) => {
+    setCordinator({
+      ...cordinator,
+      fName: event.target.value,
+    });
+    console.log(cordinator);
+  };
+  const handleFAddressChange = (event) => {
+    setCordinator({
+      ...cordinator,
+      fAddress: event.target.value,
+    });
+    console.log(cordinator);
+  };
+  const handleCTypeChange = (event) => {
+    setCordinator({
+      ...cordinator,
+      cordinatorType: event.target.value,
+    });
+    console.log(cordinator);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
       console.log(cordinator);
-    };
-    const handleSourceChange = (event) => {
-      console.log(event.target);
-      const source = sources.find((source) => source.id === event.target.value);
+      dispatch(addCordinator(cordinator));
+      setCordinatorsTable([...cordinatorsTable, cordinator]);
       setCordinator({
-        ...cordinator,
-        source: source.source,
-        sourceCode: source.sourceCode,
-        firmName: source.firmName,
-        firmAddress: source.firmAddress,
+        sourceCode: '',
+        source: '',
+        firmName: '',
+        firmAddress: '',
+        cordinatorType: '',
+        cordinatorName: '',
+        cordinatorNumber: '',
+        cordinatorEmailID: '',
       });
-      console.log(cordinator);
-    };
-    const handleFNameChange = (event) => {
-      setCordinator({
-        ...cordinator,
-        fName: event.target.value,
-      });
-      console.log(cordinator);
-    };
-    const handleFAddressChange = (event) => {
-      setCordinator({
-        ...cordinator,
-        fAddress: event.target.value,
-      });
-      console.log(cordinator);
-    };
-    const handleCTypeChange = (event) => {
-      setCordinator({
-        ...cordinator,
-        cordinatorType: event.target.value,
-      });
-      console.log(cordinator);
-    };
-  
-    const dispatch = useDispatch();
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        console.log(cordinator);
-        dispatch(addCordinator(cordinator));
-        setCordinatorsTable([...cordinatorsTable, cordinator]);
-        setCordinator({
-          sourceCode:'',
-          source:'',
-          firmName:'',
-          firmAddress:'',
-          cordinatorType:'',
-          cordinatorName:'',
-          cordinatorNumber:'',
-          cordinatorEmailID:'',
-        });
-        alert("cordinator submitted successfully");
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    return (
-      <>
-        <form onSubmit={handleSubmit}>
-            {/* <Box mt={2}>
+      alert('cordinator submitted successfully');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        {/* <Box mt={2}>
             <Typography variant="h6">Cordinator Master</Typography>
           </Box> */}
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-            <FormControl fullWidth sx={{ mr: { md: 1 },  }}>
-              <InputLabel id="demo-simple-select-label">Source</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={cordinator.source}
-                label="Source"
-                onChange={handleSourceChange}
-              >
-                {
-                  sources.map((source) => (
-                    <MenuItem value={source.id}>{source.source}</MenuItem>
-                  ))
-                }
-              </Select>
-            </FormControl> 
-            <TextField
-              fullWidth
-              sx={{ ml: { md: 1 }, mt: { xs: 1, md: 0 } }}
-              label="Source Code"
-              name="sourceCode"
-              value={cordinator.sourceCode}
-              disabled
-            />
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-            <TextField
-              fullWidth
-              sx={{ mr: { md: 1 },  }}
-              label="Firm Name"
-              name="firmName"
-              value={cordinator.firmName}
-              disabled
-            />
-            <TextField
-              fullWidth
-              sx={{ ml: { md: 1 }, mt: { xs: 1, md: 0 } }}
-              label="Firm Address"
-              name="firmAddress"
-              value={cordinator.firmAddress}
-              disabled
-            />
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
           <FormControl fullWidth sx={{ mr: { md: 1 } }}>
-              <InputLabel id="demo-simple-select-label">Cordinator Type</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={cordinator.cordinatorType}
-                label="Cordinator Type"
-                onChange={handleCTypeChange}
-              >
-                {
-                  cordinatorTypes.map((cordinatorType) => (
-                    <MenuItem value={cordinatorType.cordinatorType}>{cordinatorType.cordinatorType}</MenuItem>
-                  ))
-                }
-              </Select>
-            </FormControl> 
-            <TextField
-              label="Cordinator Name"
-              variant="outlined"
-              fullWidth
-              type="text"
-              name="cordinatorName"
-              value={cordinator.cordinatorName}
-              onChange={handleChange}
-              sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-            />
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
-            <TextField
-              label="Cordinator Number"
-              variant="outlined"
-              fullWidth
-              sx={{ mr: { md: 1 } }}
-              type="number"
-              name="cordinatorNumber"
-              value={cordinator.cordinatorNumber}
-              onChange={handleChange}
-            />
-            <TextField
-              label="Email Id"
-              variant="outlined"
-              fullWidth
-              type="email"
-              name="cordinatorEmailID"
-              value={cordinator.cordinatorEmailID}
-              onChange={handleChange}
-              sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
-            />
-          </Box>
-          <Box>
-            <Button variant="contained" color="primary" type="submit">
-              Submit
-            </Button>
-          </Box>
-        </form>
+            <InputLabel id="demo-simple-select-label"  style={{fontSize:12}}>Source</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={cordinator.source}
+              label="Source"
+              onChange={handleSourceChange}
+            
+            >
+              {sources.map((source) => (
+                <MenuItem value={source.id}>{source.source}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 1, md: 0 } }}
+            label="Source Code"
+            name="sourceCode"
+            value={cordinator.sourceCode}
+            disabled
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            label="Firm Name"
+            name="firmName"
+            value={cordinator.firmName}
+            disabled
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            fullWidth
+            sx={{ ml: { md: 1 }, mt: { xs: 1, md: 0 } }}
+            label="Firm Address"
+            name="firmAddress"
+            value={cordinator.firmAddress}
+            disabled
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <FormControl fullWidth sx={{ mr: { md: 1 } }}>
+            <InputLabel id="demo-simple-select-label"  style={{fontSize:12}}>Cordinator Type</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={cordinator.cordinatorType}
+              label="Cordinator Type"
+              onChange={handleCTypeChange}
+             
+            >
+              {cordinatorTypes.map((cordinatorType) => (
+                <MenuItem value={cordinatorType.cordinatorType}>{cordinatorType.cordinatorType}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Cordinator Name"
+            variant="outlined"
+            fullWidth
+            type="text"
+            name="cordinatorName"
+            value={cordinator.cordinatorName}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, mt: 2, mb: 2 }}>
+          <TextField
+            label="Cordinator Number"
+            variant="outlined"
+            fullWidth
+            sx={{ mr: { md: 1 } }}
+            type="number"
+            name="cordinatorNumber"
+            value={cordinator.cordinatorNumber}
+            onChange={handleChange}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+          <TextField
+            label="Email Id"
+            variant="outlined"
+            fullWidth
+            type="email"
+            name="cordinatorEmailID"
+            value={cordinator.cordinatorEmailID}
+            onChange={handleChange}
+            sx={{ ml: { md: 1 }, mt: { xs: 2, md: 0 } }}
+            InputLabelProps={{
+              style: { fontSize: 12 },
+            }}
+          />
+        </Box>
         <Box>
+          <Button type="submit" sx={{ fontSize: 12, backgroundColor: '#284F49 !important',color:'#fff' }}>
+            Submit
+          </Button>
+        </Box>
+      </form>
+      <Box>
         <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
         <Scrollbar>
@@ -355,8 +370,18 @@ const CordinatorMaster = (props) => {
               />
               <TableBody>
                 {cordinatorsTable.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((custInfo) => {
-                  const { id, sourceCode,cordinatorCode, source, firmName, firmAddress, cordinatorType, cordinatorName, cordinatorNumber, cordinatorEmailID } =
-                    custInfo;
+                  const {
+                    id,
+                    sourceCode,
+                    cordinatorCode,
+                    source,
+                    firmName,
+                    firmAddress,
+                    cordinatorType,
+                    cordinatorName,
+                    cordinatorNumber,
+                    cordinatorEmailID,
+                  } = custInfo;
                   const isItemSelected = selected.indexOf(id) !== -1;
 
                   return (
@@ -386,7 +411,6 @@ const CordinatorMaster = (props) => {
                       <TableCell align="left">{cordinatorName}</TableCell>
                       <TableCell align="left">{cordinatorNumber}</TableCell>
                       <TableCell align="left">{cordinatorEmailID}</TableCell>
-                     
                     </TableRow>
                   );
                 })}
@@ -420,8 +444,8 @@ const CordinatorMaster = (props) => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Box>
-      </>
-    );
-  };
-  
-  export default CordinatorMaster;
+    </>
+  );
+};
+
+export default CordinatorMaster;
